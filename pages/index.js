@@ -16,13 +16,17 @@ const Home = ({ products, bannerData }) => {
     <>
       <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
       <div className="products-heading">
-        <h2>bestselling product</h2>
-
-        <div className="products-conatiner">{products?.map((p) => p.name)}</div>
+        <h2>Best Selling Products</h2>
+        <p>Footballs || Basketballs || ... MORE</p>
+      </div>
+      <div className="products-container">
+        {products?.map((p) => (
+          <Product key={p._id} product={p} />
+        ))}
       </div>
 
       {/* footer */}
-      <FooterBanner />
+      <FooterBanner footerBanner={bannerData.length && bannerData[0]} />
     </>
   );
 };
